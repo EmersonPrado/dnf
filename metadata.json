@@ -2,9 +2,9 @@
   "name": "emersonprado-dnf_modules",
   "version": "0.1.0",
   "author": "emersonprado",
-  "summary": "",
+  "summary": "Puppet module to manage DNF modules",
   "license": "Apache-2.0",
-  "source": "",
+  "source": "https://github.com/EmersonPrado/dnf_modules",
   "dependencies": [
 
   ],
