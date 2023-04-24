@@ -25,7 +25,8 @@ def list_modules(module_objs):
     for module_obj in module_objs:
         module_name = module_obj.getName()
         if module_name not in modules:
-            modules[module_name] = {}
+            modules[module_name] = {'streams': {}}
+        modules[module_name]['streams'][module_obj.getStream()] = {}
 
     return modules
 
