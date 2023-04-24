@@ -16,6 +16,17 @@ def list_module_objs():
     return mod_base.get_modules('*')[0]
 
 
+def default_profile(module_obj):
+
+    """Get module's default profile
+    """
+
+    try:
+        return module_obj.getDefaultProfile().getName()
+    except RuntimeError:
+        return None
+
+
 def list_modules(module_objs):
 
     """Get names, streams and profiles for all DNF modules
@@ -27,6 +38,7 @@ def list_modules(module_objs):
         if module_name not in modules:
             modules[module_name] = {'streams': {}}
         modules[module_name]['streams'][module_obj.getStream()] = {
+            'default_profile': default_profile(module_obj),
             'profiles': [profile_obj.getName() for profile_obj in module_obj.getProfiles()]
         }
 
