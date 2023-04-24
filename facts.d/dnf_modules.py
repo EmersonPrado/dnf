@@ -1,5 +1,24 @@
 #!/usr/bin/env python3
 
+"""
+Structured fact with all DNF modules and its streams and profiles
+
+Desired output format: YAML hash
+dnf_modules:
+    <Module>:
+        default_stream: <Stream> or None
+        enabled_stream: <Stream> or None
+        streams:
+            <Stream>:
+                default_profile: <Profile> or None
+                enabled_profile: <Profile> or None
+                profiles: [<Profiles>]
+            <Stream>:
+                ...
+    <Module>:
+        ...
+"""
+
 from dnf.base import Base
 from dnf.module.module_base import ModuleBase
 
