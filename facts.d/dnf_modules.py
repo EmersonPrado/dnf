@@ -16,4 +16,19 @@ def list_module_objs():
     return mod_base.get_modules('*')[0]
 
 
+def list_modules(module_objs):
+
+    """Get names, streams and profiles for all DNF modules
+    """
+
+    modules = {}
+    for module_obj in module_objs:
+        module_name = module_obj.getName()
+        if module_name not in modules:
+            modules[module_name] = {}
+
+    return modules
+
+
 dnf_module_objs = list_module_objs()
+modules = list_modules(dnf_module_objs)
