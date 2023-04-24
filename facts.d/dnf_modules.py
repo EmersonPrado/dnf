@@ -21,6 +21,7 @@ dnf_modules:
 
 from dnf.base import Base
 from dnf.module.module_base import ModuleBase
+from yaml import dump
 
 def list_module_objs():
 
@@ -65,4 +66,4 @@ def list_modules(module_objs):
 
 
 dnf_module_objs = list_module_objs()
-modules = list_modules(dnf_module_objs)
+print(dump({'dnf_modules': list_modules(dnf_module_objs)}))
