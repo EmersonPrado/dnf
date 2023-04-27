@@ -12,6 +12,7 @@ Manages DNF modules
 1. [Usage - Configuration options and additional functionality](#usage)
 1. [Limitations - OS compatibility, etc.](#limitations)
 1. [Development - Guide for contributing to the module](#development)
+1. [References](#references)
 
 ## Description
 
@@ -107,3 +108,9 @@ necessary or important to include here. Please use the `##` header.
 [1]: https://puppet.com/docs/pdk/latest/pdk_generating_modules.html
 [2]: https://puppet.com/docs/puppet/latest/puppet_strings.html
 [3]: https://puppet.com/docs/puppet/latest/puppet_strings_style.html
+
+## References
+- DNF - Read The Docs
+    - [Home](https://dnf.readthedocs.io/en/latest/)
+    - [Modularity Interface](https://dnf.readthedocs.io/en/latest/api_module.html)
+- [DNF Source code](https://github.com/rpm-software-management/dnf/)
