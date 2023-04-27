@@ -24,7 +24,10 @@ def list_module_objs():
 
     base = Base()           # Empty
     base.read_all_repos()   # Read main conf file and .repo files
-    base.fill_sack()        # Prepare the Sack and the Goal objects
+    try:
+        base.fill_sack()    # Prepare the Sack and the Goal objects
+    except dnf.exceptions.RepoError:
+        pass
 
     mod_base = ModuleBase(base)
     return mod_base.get_modules('*')[0]
