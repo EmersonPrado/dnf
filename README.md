@@ -6,9 +6,8 @@ Manages DNF modules
 
 1. [Description](#description)
 1. [Setup - The basics of getting started with dnf_modules](#setup)
-    * [What dnf_modules affects](#what-dnf_modules-affects)
-    * [Setup requirements](#setup-requirements)
-    * [Beginning with dnf_modules](#beginning-with-dnf_modules)
+    1. [Setup requirements](#setup-requirements)
+    1. [Beginning with dnf_modules](#beginning-with-dnf_modules)
 1. [Usage - Configuration options and additional functionality](#usage)
 1. [Limitations - OS compatibility, etc.](#limitations)
 1. [Development - Guide for contributing to the module](#development)
@@ -20,27 +19,13 @@ This module allows selection of streams and/or profiles for DNF modules.
 
 ## Setup
 
-### What dnf_modules affects **OPTIONAL**
-
-If it's obvious what your module touches, you can skip this section. For
-example, folks can probably figure out that your mysql_instance module affects
-their MySQL instances.
-
-If there's more that they should know about, though, this is the place to
-mention:
-
-* Files, packages, services, or operations that the module will alter, impact,
-  or execute.
-* Dependencies that your module automatically installs.
-* Warnings or other important notices.
-
 ### Setup Requirements **OPTIONAL**
 
-If your module requires anything extra before setting up (pluginsync enabled,
-another module, etc.), mention it here.
-
-If your most recent release breaks compatibility or requires particular steps
-for upgrading, you might want to include an additional "Upgrading" section here.
+- OS - Must have dnf
+    - RedHat family >= 8.0
+- Packages
+    - python3
+    - pyyaml
 
 ### Beginning with dnf_modules
 
