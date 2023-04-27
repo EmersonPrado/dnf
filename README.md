@@ -1,10 +1,6 @@
 # dnf_modules
 
-Welcome to your new module. A short overview of the generated parts can be found
-in the [PDK documentation][1].
-
-The README template below provides a starting point with details about what
-information to include in your README.
+Manages DNF modules
 
 ## Table of Contents
 
@@ -19,11 +15,7 @@ information to include in your README.
 
 ## Description
 
-Briefly tell users why they might want to use your module. Explain what your
-module does and what kind of problems users can solve with it.
-
-This should be a fairly short description helps the user decide if your module
-is what they want.
+This module allows selection of streams and/or profiles for DNF modules.
 
 ## Setup
 
