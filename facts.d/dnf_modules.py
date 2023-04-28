@@ -3,7 +3,7 @@
 """
 Structured fact with all DNF modules and its streams and profiles
 
-Desired output format: YAML hash
+Output format: YAML hash
 dnf_modules:
     <Module>:
         <Stream>: [<Profiles>]
