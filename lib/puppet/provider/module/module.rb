@@ -1,3 +1,3 @@
 Puppet::Type.type(:module).provide(:module) do
-  true
+  desc "Implements DNF module actions"
 end
