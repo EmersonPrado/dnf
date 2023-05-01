@@ -3,4 +3,8 @@ Puppet::Type.newtype(:module) do
   newparam(:name) do
     desc "Module name"
   end
+  newproperty(:action) do
+    desc "Action to be performed on module"
+    newvalues(:disable, :enable, :install, :remove, :reset, :switch_to, :update)
+  end
 end
