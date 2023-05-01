@@ -1,6 +1,6 @@
-# dnf_modules
+# dnf
 
-Manages DNF modules
+Manages DNF package manager features not included in previous tool YUM
 
 ## Table of Contents
 
@@ -15,7 +15,7 @@ Manages DNF modules
 
 ## Description
 
-This module allows selection of streams and/or profiles for DNF modules.
+This module allows dealing with special DNF features, like selection of modules streams and/or profiles.
 
 ## Setup
 
