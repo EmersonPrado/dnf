@@ -19,7 +19,7 @@ This module allows dealing with special DNF features, like selection of modules 
 
 ## Setup
 
-### Setup Requirements **OPTIONAL**
+### Setup Requirements
 
 - OS - Must have dnf
     - RedHat family >= 8.0
