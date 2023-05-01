@@ -5,9 +5,9 @@ Manages DNF package manager features not included in previous tool YUM
 ## Table of Contents
 
 1. [Description](#description)
-1. [Setup - The basics of getting started with dnf_modules](#setup)
+1. [Setup - The basics of getting started with dnf](#setup)
     1. [Setup requirements](#setup-requirements)
-    1. [Beginning with dnf_modules](#beginning-with-dnf_modules)
+    1. [Beginning with dnf](#beginning-with-dnf)
 1. [Usage - Configuration options and additional functionality](#usage)
 1. [Limitations - OS compatibility, etc.](#limitations)
 1. [Development - Guide for contributing to the module](#development)
@@ -27,7 +27,7 @@ This module allows dealing with special DNF features, like selection of modules 
     - python3
     - pyyaml
 
-### Beginning with dnf_modules
+### Beginning with dnf
 
 The very basic steps needed for a user to get the module up and running. This
 can include setup steps, if necessary, or it can be an example of the most basic
