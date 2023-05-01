@@ -27,7 +27,7 @@ def list_module_objs():
     try:
         base.fill_sack()    # Prepare the Sack and the Goal objects
     except dnf.exceptions.RepoError:
-        pass
+        pass                # Keep repository failures from breaking execution
 
     mod_base = ModuleBase(base)
     return mod_base.get_modules('*')[0]
