@@ -5,6 +5,6 @@ Puppet::Type.newtype(:module) do
   end
   newproperty(:action) do
     desc "Action to be performed on module"
-    newvalues(:disable, :enable, :install, :remove, :reset, :switch_to, :update)
+    newvalues(:disable, :enable, :install, :remove, :reset, :update)
   end
 end
