@@ -22,12 +22,14 @@ def list_module_objs():
     """List dnf modules as libdnf.module.ModulePackage objects
     """
 
-    base = Base()           # Empty
-    base.read_all_repos()   # Read main conf file and .repo files
-    try:
-        base.fill_sack()    # Prepare the Sack and the Goal objects
-    except dnf.exceptions.RepoError:
-        pass                # Keep repository failures from breaking execution
+    base = Base()
+
+    # Keep repository failures from breaking execution
+    conf = base.conf
+    conf.skip_if_unavailable = True
+
+    base.read_all_repos()       # Read main conf file and .repo files
+    base.fill_sack()            # Prepare the Sack and the Goal objects
 
     mod_base = ModuleBase(base)
     return mod_base.get_modules('*')[0]
