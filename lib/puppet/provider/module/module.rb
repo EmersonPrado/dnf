@@ -4,10 +4,13 @@ Puppet::Type.type(:module).provide(:module) do
   commands :dnf => 'dnf'
 
   def query_module(module_name, *state)
-    dnf('-q', 'module', *state, 'list', module_name).lines.each do |line|
-      return true if line.split()[0] == module_name
+    begin
+      dnf('-q', 'module', *state, 'list', module_name)
+    rescue
+      return false
+    else
+      return true
     end
-    return false
   end
 
   def run_action(command, module_name)
