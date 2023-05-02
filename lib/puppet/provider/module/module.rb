@@ -21,7 +21,7 @@ Puppet::Type.type(:module).provide(:module) do
     raise "Resource #{resource[:name]} doesn't exist!" unless query_module(resource[:name])
   end
   def action=(action_name)
-    true
+    run_action(action_name, resource[:name])
   end
 
 end
