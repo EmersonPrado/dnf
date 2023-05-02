@@ -7,9 +7,9 @@ Puppet::Type.type(:module).provide(:module) do
     begin
       dnf('-q', 'module', *state, 'list', module_name)
     rescue
-      return false
+      false
     else
-      return true
+      true
     end
   end
 
