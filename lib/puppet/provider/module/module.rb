@@ -18,20 +18,20 @@ Puppet::Type.type(:module).provide(:module) do
   end
 
   def action
-    raise "Resource #{resource[:name]} doesn't exist!" unless get_module(resource[:name])
+    raise "Resource #{resource[:module]} doesn't exist!" unless get_module(resource[:module])
   end
   def action=(action_name)
     case action_name
     when :enable,:disable
-      return if get_module(resource[:name], "--#{action_name}d")
+      return if get_module(resource[:module], "--#{action_name}d")
     when :reset
-      return unless get_module(resource[:name], "--enabled") or get_module(resource[:name], "--disabled")
+      return unless get_module(resource[:module], "--enabled") or get_module(resource[:module], "--disabled")
     when :install
-      return if get_module(resource[:name], "--installed")
+      return if get_module(resource[:module], "--installed")
     when :remove,:update
-      return unless get_module(resource[:name], "--installed")
+      return unless get_module(resource[:module], "--installed")
     end
-    set_module(action_name, resource[:name])
+    set_module(action_name, resource[:module])
   end
 
 end
