@@ -41,6 +41,7 @@ Puppet::Type.type(:stream).provide(:stream) do
   def action
     exists?(resource[:module], resource[:stream])
   end
+
   def action=(action_name)
     enabled_stream = get_enabled(resource[:module])
     return if enabled_stream == resource[:stream]
@@ -55,5 +56,4 @@ Puppet::Type.type(:stream).provide(:stream) do
     end
     set_stream(action_name, resource[:module], resource[:stream])
   end
-
 end

@@ -24,5 +24,4 @@ Puppet::Type.newtype(:stream) do
     EOS
     newvalues(:enable, :switch)
   end
-
 end

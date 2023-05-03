@@ -1,5 +1,4 @@
 Puppet::Type.newtype(:module) do
-
   @doc = <<-EOS
     Manage DNF module
     Perform actions specific to the modules itself
@@ -18,5 +17,4 @@ Puppet::Type.newtype(:module) do
     desc 'Action to be performed on module'
     newvalues(:disable, :enable, :install, :remove, :reset, :update)
   end
-
 end

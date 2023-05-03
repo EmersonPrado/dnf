@@ -20,6 +20,7 @@ Puppet::Type.type(:module).provide(:module) do
   def action
     raise "Resource #{resource[:module]} doesn't exist!" unless get_module(resource[:module])
   end
+
   def action=(action_name)
     case action_name
     when :enable,:disable
@@ -33,5 +34,4 @@ Puppet::Type.type(:module).provide(:module) do
     end
     set_module(action_name, resource[:module])
   end
-
 end
