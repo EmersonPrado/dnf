@@ -1,7 +1,7 @@
 Puppet::Type.type(:module).provide(:module) do
   desc 'Implements DNF module actions'
 
-  commands :dnf => 'dnf'
+  commands dnf: 'dnf'
 
   def get_module(module_name, *state)
     dnf('-q', 'module', *state, 'list', module_name)

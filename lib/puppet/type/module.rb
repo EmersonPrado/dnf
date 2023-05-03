@@ -5,7 +5,7 @@ Puppet::Type.newtype(:module) do
     To manage DNF module streams or profiles, use corresponding resources
   EOS
 
-  newparam(:title, :namevar => true) do
+  newparam(:title, namevar: true) do
     desc 'Resource title'
   end
 
