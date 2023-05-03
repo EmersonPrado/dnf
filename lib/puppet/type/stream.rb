@@ -1,5 +1,4 @@
 Puppet::Type.newtype(:stream) do
-
   @doc = <<-EOS
     Manage DNF module stream
     Perform actions specific to the modules streams
@@ -7,15 +6,15 @@ Puppet::Type.newtype(:stream) do
   EOS
 
   newparam(:title, :namevar => true) do
-    desc "Resource title"
+    desc 'Resource title'
   end
 
   newparam(:module) do
-    desc "Module name"
+    desc 'Module name'
   end
 
   newparam(:stream) do
-    desc "Module stream"
+    desc 'Module stream'
   end
 
   newproperty(:action) do

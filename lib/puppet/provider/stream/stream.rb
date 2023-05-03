@@ -1,5 +1,5 @@
 Puppet::Type.type(:stream).provide(:stream) do
-  desc "Implements DNF module stream actions"
+  desc 'Implements DNF module stream actions'
 
   commands :dnf => 'dnf'
 
@@ -51,7 +51,7 @@ Puppet::Type.type(:stream).provide(:stream) do
         Reset module resource[:module] before or use 'switch-to' instead
       EOS
     when :switch
-      action_name = "switch-to"
+      action_name = 'switch-to'
     end
     set_stream(action_name, resource[:module], resource[:stream])
   end

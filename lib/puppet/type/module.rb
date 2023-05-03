@@ -7,15 +7,15 @@ Puppet::Type.newtype(:module) do
   EOS
 
   newparam(:title, :namevar => true) do
-    desc "Resource title"
+    desc 'Resource title'
   end
 
   newparam(:module) do
-    desc "Module name"
+    desc 'Module name'
   end
 
   newproperty(:action) do
-    desc "Action to be performed on module"
+    desc 'Action to be performed on module'
     newvalues(:disable, :enable, :install, :remove, :reset, :update)
   end
 

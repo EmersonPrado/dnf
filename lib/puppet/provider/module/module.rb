@@ -1,5 +1,5 @@
 Puppet::Type.type(:module).provide(:module) do
-  desc "Implements DNF module actions"
+  desc 'Implements DNF module actions'
 
   commands :dnf => 'dnf'
 
@@ -25,11 +25,11 @@ Puppet::Type.type(:module).provide(:module) do
     when :enable,:disable
       return if get_module(resource[:module], "--#{action_name}d")
     when :reset
-      return unless get_module(resource[:module], "--enabled") or get_module(resource[:module], "--disabled")
+      return unless get_module(resource[:module], '--enabled') or get_module(resource[:module], '--disabled')
     when :install
-      return if get_module(resource[:module], "--installed")
+      return if get_module(resource[:module], '--installed')
     when :remove,:update
-      return unless get_module(resource[:module], "--installed")
+      return unless get_module(resource[:module], '--installed')
     end
     set_module(action_name, resource[:module])
   end
