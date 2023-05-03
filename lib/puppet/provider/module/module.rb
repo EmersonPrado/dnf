@@ -16,7 +16,7 @@ Puppet::Type.type(:module).provide(:module) do
   end
 
   def action
-    raise "Resource #{resource[:module]} doesn't exist!" unless get_module(resource[:module])
+    raise "Module #{resource[:module]} doesn't exist!" unless get_module(resource[:module])
   end
 
   def action=(action_name)
