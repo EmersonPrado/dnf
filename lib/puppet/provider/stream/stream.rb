@@ -21,11 +21,25 @@ Puppet::Type.type(:stream).provide(:stream) do
     true
   end
 
+  def get_enabled(module_name)
+    begin
+      lines = get(module_name, '--enabled').lines
+    rescue
+      nil
+    else
+      lines.each do |line|
+        items = line.split
+        return items[1] if items[0] == module_name
+      end
+    end
+  end
+
   def action
     exists?(resource[:module], resource[:stream])
   end
   def action=(action_name)
-    true
+    enabled_stream = get_enabled(resource[:module])
+    return if enabled_stream == resource[:stream]
   end
 
 end
