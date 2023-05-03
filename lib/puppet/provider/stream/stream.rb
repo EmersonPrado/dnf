@@ -45,7 +45,7 @@ Puppet::Type.type(:stream).provide(:stream) do
     return if enabled_stream == resource[:stream]
     case action_name
     when :enable
-      raise <<-EOS unless enabled_stream == nil
+      raise <<-EOS unless enabled_stream.nil?
         Can't enable stream #{resource[:stream]} because #{enabled_stream} is enabled
         Reset module resource[:module] before or use 'switch-to' instead
       EOS
