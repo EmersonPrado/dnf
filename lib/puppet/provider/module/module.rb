@@ -4,13 +4,11 @@ Puppet::Type.type(:module).provide(:module) do
   commands :dnf => 'dnf'
 
   def get_module(module_name, *state)
-    begin
-      dnf('-q', 'module', *state, 'list', module_name)
-    rescue
-      false
-    else
-      true
-    end
+    dnf('-q', 'module', *state, 'list', module_name)
+  rescue
+    false
+  else
+    true
   end
 
   def set_module(command, module_name)

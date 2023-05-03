@@ -22,15 +22,13 @@ Puppet::Type.type(:stream).provide(:stream) do
   end
 
   def get_enabled(module_name)
-    begin
-      lines = get(module_name, '--enabled').lines
-    rescue
-      nil
-    else
-      lines.each do |line|
-        items = line.split
-        return items[1] if items[0] == module_name
-      end
+    lines = get(module_name, '--enabled').lines
+  rescue
+    nil
+  else
+    lines.each do |line|
+      items = line.split
+      return items[1] if items[0] == module_name
     end
   end
 
