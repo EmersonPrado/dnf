@@ -7,14 +7,6 @@ Puppet::Type.type(:stream).provide(:stream) do
     dnf('-q', 'module', 'list', *state, item)
   end
 
-  def exists?(module_name, stream_name)
-    get("#{module_name}:#{stream_name}")
-  rescue
-    raise "Stream #{stream_name} from #{module_name} doesn't exist!"
-  else
-    true
-  end
-
   def get_enabled(module_name)
     lines = get(module_name, '--enabled').lines
   rescue
@@ -31,7 +23,8 @@ Puppet::Type.type(:stream).provide(:stream) do
   end
 
   def action
-    exists?(resource[:module], resource[:stream])
+    raise "Module #{resource[:module]} doesn't have stream #{resource[:stream]}!" unless
+    Facter['dnf_modules'].value[resource[:module]].key?(resource[:stream])
   end
 
   def action=(action_name)
