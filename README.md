@@ -17,6 +17,8 @@ Manages DNF package manager features not included in previous tool YUM
 
 This module allows dealing with special DNF features, like selection of modules streams and/or profiles.
 
+For features common with Yum and general configuration, consider using [yum](https://forge.puppet.com/modules/puppet/yum/) module.
+
 ## Setup
 
 ### Setup Requirements
