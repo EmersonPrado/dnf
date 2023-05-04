@@ -25,6 +25,7 @@ For features common with Yum and general configuration, consider using [yum](htt
 
 - OS - Must have dnf
     - RedHat family >= 8.0
+    - Fedora >= 22
 - Packages
     - python3
     - pyyaml
