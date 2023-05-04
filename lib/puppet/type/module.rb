@@ -11,6 +11,9 @@ Puppet::Type.newtype(:module) do
 
   newparam(:module) do
     desc 'Module name'
+    validate do |value|
+      raise "Module #{value} doesn't exist!" unless Facter['dnf_modules'].value.key?(value)
+    end
   end
 
   newproperty(:action) do
