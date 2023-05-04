@@ -3,6 +3,13 @@ Puppet::Type.type(:module).provide(:module) do
 
   commands dnf: 'dnf'
 
+  def module_has_profile?(module_name, profile_name)
+    Facter['dnf_modules'].value[module_name].each_value do |profiles|
+      return true if profiles.include?(profile_name)
+    end
+    false
+  end
+
   def get_module(module_name, *state)
     dnf('-q', 'module', *state, 'list', module_name)
   rescue
@@ -16,7 +23,8 @@ Puppet::Type.type(:module).provide(:module) do
   end
 
   def action
-    true
+    raise "Module #{resource[:module]} doesn't have profile #{resource[:profile]}!" unless
+    resource[:profile].nil? || module_has_profile?(resource[:module], resource[:profile])
   end
 
   def action=(action_name)
