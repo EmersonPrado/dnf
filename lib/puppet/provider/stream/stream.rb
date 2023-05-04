@@ -3,12 +3,8 @@ Puppet::Type.type(:stream).provide(:stream) do
 
   commands dnf: 'dnf'
 
-  def get(item, *state)
-    dnf('-q', 'module', 'list', *state, item)
-  end
-
   def get_enabled(module_name)
-    lines = get(module_name, '--enabled').lines
+    lines = dnf('-q', 'module', 'list', '--enabled', module_name).lines
   rescue
     nil
   else
