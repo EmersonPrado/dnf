@@ -28,6 +28,8 @@ Puppet::Type.type(:module).provide(:module) do
   end
 
   def action=(action_name)
+    raise 'Profile specification only for actions install, remove and update!' unless
+    resource[:profile].nil? || [:install, :remove, :update].include?(action_name)
     case action_name
     when :enable, :disable
       return if get_module(resource[:module], "--#{action_name}d")
