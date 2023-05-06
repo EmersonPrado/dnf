@@ -10,12 +10,16 @@ Puppet::Type.type(:module).provide(:module) do
     false
   end
 
+  def profile_installed?(module_name, profile_name, output)
+    true
+  end
+
   def get_module(module_name, profile_name, state)
-    dnf('-q', 'module', state, 'list', module_name)
+    output = dnf('-q', 'module', state, 'list', module_name)
   rescue
     false
   else
-    true
+    profile_name.nil? || profile_installed?(module_name, profile_name, output)
   end
 
   def set_module(command, module_name)
