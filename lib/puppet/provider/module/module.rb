@@ -28,6 +28,12 @@ Puppet::Type.type(:module).provide(:module) do
       key, value = line.split(' : ')
       next if value.nil?
       value.lstrip!
+      case key.rstrip
+      when 'Stream'
+        @stream_name, enabled, default = stream_profile_data(value)
+        module_hash[:streams][@stream_name] = { profiles: [] } unless
+          module_hash[:streams].key?(@stream_name)
+      end
     end
     module_hash
   end
