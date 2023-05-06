@@ -15,6 +15,10 @@ Puppet::Type.type(:module).provide(:module) do
       if line.split[0] == 'Name'
         @skip = line[%r{^Name\s+Stream\s+}].length
         @save = line[%r{Profiles\s+}].length
+      elsif line.split[0] == module_name
+        line[@skip, @save].rstrip.split(', ').each do |profile_state|
+          true
+        end
       end
     end
     true
