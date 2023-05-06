@@ -16,6 +16,10 @@ Puppet::Type.newtype(:module) do
     end
   end
 
+  newparam(:profile) do
+    desc 'Profile name (optional)'
+  end
+
   newproperty(:action) do
     desc 'Action to be performed on module'
     newvalues(:disable, :enable, :install, :remove, :reset, :update)
