@@ -1,10 +1,11 @@
 # Manage DNF modules
-#   To manage DNF module streams or profiles, use dnf::modules::(stream|profile)
+#   To manage DNF module streams, use dnf::modules::stream
 #
 # Usage:
 #   dnf::modules::module { '<Title>':
-#     module => '<Module>',
-#     action => '<Action>',
+#     module  => '<Module>',
+#     action  => '<Action>',
+#     profile => '<Profile>',   # Optional
 #   }
 # Or
 #   dnf::modules::module { '<Title>':
@@ -18,9 +19,11 @@
 define dnf::modules::module (
   Variant[String, Array] $module,
   Enum[disable, enable, install, remove, reset, update] $action,
+  Optional[String] $profile = undef,
 ) {
   module { $title:
-    module => $module,
-    action => $action,
+    module  => $module,
+    profile => $profile,
+    action  => $action,
   }
 }
