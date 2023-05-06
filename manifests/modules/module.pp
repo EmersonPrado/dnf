@@ -21,9 +21,20 @@ define dnf::modules::module (
   Enum[disable, enable, install, remove, reset, update] $action,
   Optional[String] $profile = undef,
 ) {
+
+  if $profile != undef {
+    if type($module) =~ Type[Array] {
+      fail('"profile" parameter only compatible to string type "module" parameter')
+    }
+    if ! $action in ['install', 'remove', 'update'] {
+      fail('Parameter "profile" only compatible to actions "install", "remove" and "update"')
+    }
+  }
+
   module { $title:
     module  => $module,
     profile => $profile,
     action  => $action,
   }
+
 }
