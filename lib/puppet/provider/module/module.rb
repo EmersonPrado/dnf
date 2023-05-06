@@ -10,28 +10,16 @@ Puppet::Type.type(:module).provide(:module) do
     false
   end
 
-  def profile_installed?(module_name, profile_name, output)
-    output.lines.each do |line|
-      if line.split[0] == 'Name'
-        @skip = line[%r{^Name\s+Stream\s+}].length
-        @save = line[%r{Profiles\s+}].length
-      elsif line.split[0] == module_name
-        line[@skip, @save].rstrip.split(', ').each do |profile_state|
-          return true if profile_state.include?(' ') &&
-                         profile_state.split[0] == profile_name &&
-                         profile_state.split[1].include?('i')
-        end
-      end
-    end
-    false
+  def profile_installed?(module_name, profile_name)
+    nil
   end
 
   def get_module(module_name, profile_name, state)
-    output = dnf('-q', 'module', state, 'list', module_name)
+    dnf('-q', 'module', state, 'list', module_name)
   rescue
     false
   else
-    profile_name.nil? || profile_installed?(module_name, profile_name, output)
+    profile_name.nil? || profile_installed?(module_name, profile_name)
   end
 
   def set_module(command, module_name)
