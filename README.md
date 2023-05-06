@@ -52,8 +52,7 @@ tasks that involve different types, classes, and functions working in tandem.
 
 ## Development
 
-In the Development section, tell other users the ground rules for contributing
-to your project and how they should submit their work.
+To help make this module better, pls follow [Contributing to Supported Modules](https://puppetlabs.github.io/iac/docs/contributing_to_a_module.html) article, from Puppetlabs [Infrastructure and Automation Content (IAC) Team](https://puppetlabs.github.io/iac/).
 
 ## References
 
