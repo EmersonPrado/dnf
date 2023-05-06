@@ -12,6 +12,11 @@ Puppet::Type.type(:module).provide(:module) do
 
   def module_info_2_hash(dnf_output)
     module_hash = { streams: {} }
+    dnf_output.lines.each do |line|
+      key, value = line.split(' : ')
+      next if value.nil?
+      value.lstrip!
+    end
     module_hash
   end
 
