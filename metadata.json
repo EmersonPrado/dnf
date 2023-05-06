@@ -1,10 +1,10 @@
 {
-  "name": "emersonprado-dnf_modules",
+  "name": "emersonprado-dnf",
   "version": "0.1.0",
   "author": "emersonprado",
-  "summary": "Puppet module to manage DNF modules",
+  "summary": "Puppet module to manage DNF package manager features not included in YUM",
   "license": "Apache-2.0",
-  "source": "https://github.com/EmersonPrado/dnf_modules",
+  "source": "https://github.com/EmersonPrado/dnf",
   "dependencies": [
 
   ],
