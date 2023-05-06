@@ -9,6 +9,7 @@ Manages DNF package manager features not included in previous tool YUM
     1. [Setup requirements](#setup-requirements)
     1. [Beginning with dnf](#beginning-with-dnf)
 1. [Usage - Configuration options and additional functionality](#usage)
+    1. [DNF module actions](#dnf-module-actions)
 1. [Limitations - OS compatibility, etc.](#limitations)
 1. [Development - Guide for contributing to the module](#development)
 1. [References](#references)
@@ -38,11 +39,49 @@ use of the module.
 
 ## Usage
 
-Include usage examples for common use cases in the **Usage** section. Show your
-users how to use your module to solve problems, and be sure to include code
-examples. Include three to five examples of the most important or common tasks a
-user can accomplish with your module. Show users how to accomplish more complex
-tasks that involve different types, classes, and functions working in tandem.
+### DNF module actions
+
+```Puppet
+dnf::modules::module { 'enable_nginx_module_default_stream':
+  module  => 'nginx',
+  action  => 'enable',
+}
+```
+
+```Puppet
+dnf::modules::module { 'disable_nginx_module_current_streams':
+  module  => 'nginx',
+  action  => 'disable',
+}
+```
+
+```Puppet
+dnf::modules::module { 'reset_nginx_module_all_streams':
+  module  => 'nginx',
+  action  => 'reset',
+}
+```
+
+```Puppet
+dnf::modules::module { 'install_nginx_module_default_stream_and_profile':
+  module  => 'nginx',
+  action  => 'install',
+}
+```
+
+```Puppet
+dnf::modules::module { 'update_nginx_module_current_stream_and_profile':
+  module  => 'nginx',
+  action  => 'update',
+}
+```
+
+```Puppet
+dnf::modules::module { 'remove_nginx_module_default_stream_and_profile':
+  module  => 'nginx',
+  action  => 'remove',
+}
+```
 
 ## Limitations
 
