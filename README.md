@@ -101,6 +101,30 @@ dnf::modules::stream { 'nginx_switch_stream_1.20':
 }
 ```
 
+```Puppet
+dnf::modules::module { 'install_mariadb_module_galera_profile':
+  module  => 'mariadb',
+  profile => 'galera',
+  action  => 'install',
+}
+```
+
+```Puppet
+dnf::modules::module { 'update_mariadb_module_galera_profile':
+  module  => 'mariadb',
+  profile => 'galera',
+  action  => 'update',
+}
+```
+
+```Puppet
+dnf::modules::module { 'remove_mariadb_module_server_profile':
+  module  => 'mariadb',
+  profile => 'server',
+  action  => 'remove',
+}
+```
+
 ## Limitations
 
 - So far, only implements `dnf module` configuration actions
