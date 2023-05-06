@@ -17,11 +17,13 @@ Puppet::Type.type(:module).provide(:module) do
         @save = line[%r{Profiles\s+}].length
       elsif line.split[0] == module_name
         line[@skip, @save].rstrip.split(', ').each do |profile_state|
-          true
+          return true if profile_state.include?(' ') &&
+                         profile_state.split[0] == profile_name &&
+                         profile_state.split[1].include?('i')
         end
       end
     end
-    true
+    false
   end
 
   def get_module(module_name, profile_name, state)
