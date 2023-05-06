@@ -11,6 +11,12 @@ Puppet::Type.type(:module).provide(:module) do
   end
 
   def profile_installed?(module_name, profile_name, output)
+    output.lines.each do |line|
+      if line.split[0] == 'Name'
+        @skip = line[%r{^Name\s+Stream\s+}].length
+        @save = line[%r{Profiles\s+}].length
+      end
+    end
     true
   end
 
