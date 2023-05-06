@@ -10,8 +10,13 @@ Puppet::Type.type(:module).provide(:module) do
     false
   end
 
+  def module_info_2_hash(dnf_output)
+    module_hash = { streams: {} }
+    module_hash
+  end
+
   def profile_installed?(module_name, profile_name)
-    nil
+    module_hash = module_info_2_hash(dnf('-q', 'module', 'info', module_name))
   end
 
   def get_module(module_name, profile_name, state)
