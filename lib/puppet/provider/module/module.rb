@@ -10,6 +10,18 @@ Puppet::Type.type(:module).provide(:module) do
     false
   end
 
+  def stream_profile_data(value)
+    if value.include?(' ')
+      [
+        value.split[0],
+        value.include?('[e]') || value.include?('[i]'),
+        value.include?('[d]'),
+      ]
+    else
+      [value, false, false]
+    end
+  end
+
   def module_info_2_hash(dnf_output)
     module_hash = { streams: {} }
     dnf_output.lines.each do |line|
