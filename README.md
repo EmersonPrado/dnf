@@ -83,6 +83,24 @@ dnf::modules::module { 'remove_nginx_module_default_stream_and_profile':
 }
 ```
 
+```Puppet
+# Only works if no other stream is enabled
+dnf::modules::stream { 'nginx_enable_stream_1.20':
+  module => 'nginx',
+  stream => '1.20',
+  action => 'enable',
+}
+```
+
+```Puppet
+# Migrate everything if other stream is enabled
+dnf::modules::stream { 'nginx_switch_stream_1.20':
+  module => 'nginx',
+  stream => '1.20',
+  action => 'switch-to',
+}
+```
+
 ## Limitations
 
 - So far, only implements `dnf module` configuration actions
