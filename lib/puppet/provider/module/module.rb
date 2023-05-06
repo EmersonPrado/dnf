@@ -51,6 +51,9 @@ Puppet::Type.type(:module).provide(:module) do
   def profile_installed?(module_name, profile_name)
     module_hash = module_info_2_hash(dnf('-q', 'module', 'info', module_name))
     return false unless module_hash.key?(:enabled_stream)
+    stream_hash = module_hash[:streams][module_hash[:enabled_stream]]
+    stream_hash.key?(:installed_profile) &&
+      stream_hash[:installed_profile] == profile_name
   end
 
   def get_module(module_name, profile_name, state)
