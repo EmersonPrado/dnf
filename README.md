@@ -10,6 +10,9 @@ Manages DNF package manager features not included in previous tool YUM
     1. [Beginning with dnf](#beginning-with-dnf)
 1. [Usage - Configuration options and additional functionality](#usage)
     1. [DNF module actions](#dnf-module-actions)
+        1. [Default stream and profile](#default-stream-and-profile)
+        1. [Stream actions](#stream-actions)
+        1. [Specific profile](#specific-profile)
 1. [Limitations - OS compatibility, etc.](#limitations)
 1. [Development - Guide for contributing to the module](#development)
 1. [References](#references)
@@ -40,6 +43,8 @@ use of the module.
 ## Usage
 
 ### DNF module actions
+
+#### Default stream and profile
 
 ```Puppet
 dnf::modules::module { 'enable_nginx_module_default_stream':
@@ -83,6 +88,8 @@ dnf::modules::module { 'remove_nginx_module_default_stream_and_profile':
 }
 ```
 
+#### Stream actions
+
 ```Puppet
 # Only works if no other stream is enabled
 dnf::modules::stream { 'nginx_enable_stream_1.20':
@@ -100,6 +107,8 @@ dnf::modules::stream { 'nginx_switch_stream_1.20':
   action => 'switch-to',
 }
 ```
+
+#### Specific profile
 
 ```Puppet
 dnf::modules::module { 'install_mariadb_module_galera_profile':
