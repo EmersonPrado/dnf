@@ -46,8 +46,9 @@ tasks that involve different types, classes, and functions working in tandem.
 
 ## Limitations
 
-In the Limitations section, list any incompatibilities, known issues, or other
-warnings.
+- So far, only implements `dnf module` configuration actions
+- No unit tests yet
+- Only tested in Rocky Linux 8
 
 ## Development
 
