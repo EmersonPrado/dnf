@@ -10,8 +10,8 @@ Puppet::Type.type(:module).provide(:module) do
     false
   end
 
-  def get_module(module_name, profile_name, *state)
-    dnf('-q', 'module', *state, 'list', module_name)
+  def get_module(module_name, profile_name, state)
+    dnf('-q', 'module', state, 'list', module_name)
   rescue
     false
   else
