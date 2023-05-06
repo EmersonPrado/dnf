@@ -40,6 +40,8 @@ Puppet::Type.type(:module).provide(:module) do
           profile_name, installed, default = stream_profile_data(item)
           module_hash[:streams][@stream_name][:profiles].push(profile_name) unless
             module_hash[:streams][@stream_name][:profiles].include?(profile_name)
+          module_hash[:streams][@stream_name][:installed_profile] = profile_name if installed
+          module_hash[:streams][@stream_name][:default_profile] = profile_name if default
         end
       end
     end
