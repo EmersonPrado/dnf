@@ -64,8 +64,12 @@ Puppet::Type.type(:module).provide(:module) do
     profile_name.nil? || profile_installed?(module_name, profile_name)
   end
 
-  def set_module(command, module_name)
-    dnf('-y', 'module', command, module_name)
+  def set_module(command, module_name, profile_name)
+    if profile_name.nil?
+      dnf('-y', 'module', command, module_name)
+    else
+      dnf('-y', 'module', command, "#{module_name}/#{profile_name}")
+    end
   end
 
   def action
@@ -87,6 +91,6 @@ Puppet::Type.type(:module).provide(:module) do
     when :remove, :update
       return unless get_module(resource[:module], resource[:profile], '--installed')
     end
-    set_module(action_name, resource[:module])
+    set_module(action_name, resource[:module], resource[:profile])
   end
 end
