@@ -33,6 +33,8 @@ Puppet::Type.type(:module).provide(:module) do
         @stream_name, enabled, default = stream_profile_data(value)
         module_hash[:streams][@stream_name] = { profiles: [] } unless
           module_hash[:streams].key?(@stream_name)
+        module_hash[:enabled_stream] = @stream_name if enabled
+        module_hash[:default_stream] = @stream_name if default
       end
     end
     module_hash
