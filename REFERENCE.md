@@ -82,6 +82,22 @@ dnf_module { '<Title>':
 
 > You can query available modules and their profiles with [dnf_modules custom fact](#dnf_modules), `dnf -q module list` or `dnf -q module list <Module>`
 
+- With puppetlabs-stdlib module's [ensure_resources](https://forge.puppet.com/modules/puppetlabs/stdlib/reference#ensure_resources-1) function
+
+```Puppet
+ensure_resources('dnf_module',
+  {
+    '<Title>' => { 'module' => '<Module>' },    # Default profile and action
+    '<Title>' => { 'module' => '<Module>', 'action' => '<Action>' },    # Default profile
+    '<Title>' => { 'module' => '<Module>', 'profile' => '<Profile>' },  # Default action
+    '<Title>' => { 'module' => '<Module>', 'profile' => '<Profile>', 'action' => '<Action>' },
+    ...
+  },
+  { 'action' => '<Default action>' }
+)
+
+> Ensure titles are unique for the whole catalog
+
 ### `dnf_module_stream`
 
 Manages DNF modules streams
@@ -103,3 +119,17 @@ dnf_module_stream { '<Title>':
         > Use 'switch_to' instead of 'switch-to', due to Ruby symbol naming rules
 
 > You can query available modules and their streams with [dnf_modules custom fact](#dnf_modules), `dnf -q module list` or `dnf -q module list <Module>`
+
+- With puppetlabs-stdlib module's [ensure_resources](https://forge.puppet.com/modules/puppetlabs/stdlib/reference#ensure_resources-1) function
+
+```Puppet
+ensure_resources('dnf_module_stream',
+  {
+    '<Title>' => { 'module' => '<Module>', 'stream' => '<Stream>' },    # Default action
+    '<Title>' => { 'module' => '<Module>', 'stream' => '<Stream>', 'action' => '<Action>' },
+    ...
+  },
+  { 'action' => '<Default action>' }
+)
+
+> Ensure titles are unique for the whole catalog
