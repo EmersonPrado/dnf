@@ -141,6 +141,22 @@ dnf_module { 'remove_mariadb_module_server_profile':
 }
 ```
 
+#### With stlib ensure_resource/ensure_resources functions
+
+```Puppet
+# Install Nginx and MariaDB with specified profiles and streams
+$streams = {
+  'nginx_1.20'   => { 'module' => 'nginx', 'stream' => '1.20' },
+  'mariadb_10.5' => { 'module' => 'mariadb', 'stream' => '10.5' },
+}
+$profiles = {
+  'nginx_common'   => { 'module' => 'nginx', 'profile' => 'common' },
+  'mariadb_galera' => { 'module' => 'mariadb', 'profile' => 'galera' },
+}
+ensure_resources('dnf_module_stream', $streams, { 'action' => 'switch_to' })
+ensure_resources('dnf_module', $profiles, { 'action' => 'install' })
+```
+
 ## Limitations
 
 - So far, only implements `dnf module` configuration actions
