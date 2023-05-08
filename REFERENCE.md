@@ -14,6 +14,8 @@
 
 DNF modules, their streams and modules
 
+> Does not inform enabled/installed/default stream/profile
+
 - Output format: YAML hash
 
 ```Yaml
