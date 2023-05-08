@@ -94,10 +94,10 @@ dnf_module_stream { '<Title>':
 }
 ```
 
-- `module` - DNF module name
-- `stream` - DNF module stream name
+- `Module` - DNF module name
+- `Stream` - DNF module stream name
 - `Action` - Change to be done in module stream
     - Accepted values: 'enable' and 'switch_to'
-    > Use 'switch_to' instead of 'switch-to', due to Ruby symbol naming rules
+        > Use 'switch_to' instead of 'switch-to', due to Ruby symbol naming rules
 
 > You can query available modules and their streams with [dnf_modules custom fact](#dnf_modules), `dnf -q module list` or `dnf -q module list <Module>`
