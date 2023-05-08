@@ -47,42 +47,42 @@ use of the module.
 #### Default stream and profile
 
 ```Puppet
-dnf::modules::module { 'enable_nginx_module_default_stream':
+dnf_module { 'enable_nginx_module_default_stream':
   module  => 'nginx',
   action  => 'enable',
 }
 ```
 
 ```Puppet
-dnf::modules::module { 'disable_nginx_module_current_streams':
+dnf_module { 'disable_nginx_module_current_streams':
   module  => 'nginx',
   action  => 'disable',
 }
 ```
 
 ```Puppet
-dnf::modules::module { 'reset_nginx_module_all_streams':
+dnf_module { 'reset_nginx_module_all_streams':
   module  => 'nginx',
   action  => 'reset',
 }
 ```
 
 ```Puppet
-dnf::modules::module { 'install_nginx_module_default_stream_and_profile':
+dnf_module { 'install_nginx_module_default_stream_and_profile':
   module  => 'nginx',
   action  => 'install',
 }
 ```
 
 ```Puppet
-dnf::modules::module { 'update_nginx_module_current_stream_and_profile':
+dnf_module { 'update_nginx_module_current_stream_and_profile':
   module  => 'nginx',
   action  => 'update',
 }
 ```
 
 ```Puppet
-dnf::modules::module { 'remove_nginx_module_default_stream_and_profile':
+dnf_module { 'remove_nginx_module_default_stream_and_profile':
   module  => 'nginx',
   action  => 'remove',
 }
@@ -92,7 +92,7 @@ dnf::modules::module { 'remove_nginx_module_default_stream_and_profile':
 
 ```Puppet
 # Only works if no other stream is enabled
-dnf::modules::stream { 'nginx_enable_stream_1.20':
+dnf_module_stream { 'nginx_enable_stream_1.20':
   module => 'nginx',
   stream => '1.20',
   action => 'enable',
@@ -101,7 +101,7 @@ dnf::modules::stream { 'nginx_enable_stream_1.20':
 
 ```Puppet
 # Migrate everything if other stream is enabled
-dnf::modules::stream { 'nginx_switch_stream_1.20':
+dnf_module_stream { 'nginx_switch_stream_1.20':
   module => 'nginx',
   stream => '1.20',
   action => 'switch-to',
@@ -111,7 +111,7 @@ dnf::modules::stream { 'nginx_switch_stream_1.20':
 #### Specific profile
 
 ```Puppet
-dnf::modules::module { 'install_mariadb_module_galera_profile':
+dnf_module { 'install_mariadb_module_galera_profile':
   module  => 'mariadb',
   profile => 'galera',
   action  => 'install',
@@ -119,7 +119,7 @@ dnf::modules::module { 'install_mariadb_module_galera_profile':
 ```
 
 ```Puppet
-dnf::modules::module { 'update_mariadb_module_galera_profile':
+dnf_module { 'update_mariadb_module_galera_profile':
   module  => 'mariadb',
   profile => 'galera',
   action  => 'update',
@@ -127,7 +127,7 @@ dnf::modules::module { 'update_mariadb_module_galera_profile':
 ```
 
 ```Puppet
-dnf::modules::module { 'remove_mariadb_module_server_profile':
+dnf_module { 'remove_mariadb_module_server_profile':
   module  => 'mariadb',
   profile => 'server',
   action  => 'remove',
