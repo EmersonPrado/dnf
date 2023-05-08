@@ -49,7 +49,7 @@ use of the module.
 
 ## Usage
 
-> Be sure to check out module [Reference](reference)
+> Be sure to check out module [Reference](REFERENCE.md)
 
 ### DNF module actions
 
