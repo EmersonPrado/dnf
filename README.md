@@ -104,7 +104,8 @@ dnf_module_stream { 'nginx_enable_stream_1.20':
 dnf_module_stream { 'nginx_switch_stream_1.20':
   module => 'nginx',
   stream => '1.20',
-  action => 'switch-to',
+  # Use 'switch_to' instead of 'switch-to', due to Ruby symbol naming rules
+  action => 'switch_to',
 }
 ```
 

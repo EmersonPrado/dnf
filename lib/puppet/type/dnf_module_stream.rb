@@ -23,8 +23,8 @@ Puppet::Type.newtype(:dnf_module_stream) do
   newproperty(:action) do
     desc <<-EOS
       Action to be performed on module stream
-      Use "switch" instead of "switch-to"
+      Use "switch_to" instead of "switch-to"
     EOS
-    newvalues(:enable, :switch)
+    newvalues(:enable, :switch_to)
   end
 end

@@ -32,7 +32,7 @@ Puppet::Type.type(:dnf_module_stream).provide(:dnf_module_stream) do
         Can't enable stream #{resource[:stream]} because #{enabled_stream} is enabled
         Reset module resource[:module] before or use 'switch-to' instead
       EOS
-    when :switch
+    when :switch_to
       action_name = 'switch-to'
     end
     set_stream(action_name, resource[:module], resource[:stream])
