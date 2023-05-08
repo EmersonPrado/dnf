@@ -22,3 +22,32 @@ dnf_modules:
     <Module>:
     ...
 ```
+
+- Usage
+
+    - OS command `facter`
+
+    ```Shell
+    # All modules
+    facter --external-dir <Modules dir>/dnf/facts.d dnf_modules
+    # Specific module
+    facter --external-dir <Modules dir>/dnf/facts.d dnf_modules.<Module name>
+    ```
+
+    - Inside manifest
+
+    ```Ruby
+    # All modules
+    $::facts['dnf_modules']
+    # Specific module
+    $::facts['dnf_modules']['<Module name>']
+    ```
+
+    - In custom resources
+
+    ```Ruby
+    # All modules
+    Facter['dnf_modules'].value
+    # Specific module
+    Facter['dnf_modules'].value['<Module name>']
+    ```
