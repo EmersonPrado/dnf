@@ -1,4 +1,4 @@
-Puppet::Type.type(:stream).provide(:stream) do
+Puppet::Type.type(:dnf_module_stream).provide(:dnf_module_stream) do
   desc 'Implements DNF module stream actions'
 
   commands dnf: 'dnf'

@@ -1,4 +1,4 @@
-Puppet::Type.type(:module).provide(:module) do
+Puppet::Type.type(:dnf_module).provide(:dnf_module) do
   desc 'Implements DNF module actions'
 
   commands dnf: 'dnf'

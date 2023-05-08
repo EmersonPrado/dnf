@@ -1,8 +1,8 @@
-Puppet::Type.newtype(:module) do
+Puppet::Type.newtype(:dnf_module) do
   @doc = <<-EOS
     Manage DNF module
     Perform actions specific to the modules itself
-    To manage DNF module streams or profiles, use corresponding resources
+    To manage DNF module streams, use resource dnf_module_stream
   EOS
 
   newparam(:title, namevar: true) do
