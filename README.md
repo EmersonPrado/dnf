@@ -7,6 +7,7 @@ Manages DNF package manager features not included in previous tool YUM
 1. [Description](#description)
 1. [Setup - The basics of getting started with dnf](#setup)
     1. [Setup requirements](#setup-requirements)
+    1. [Recommended modules](#recommended-modules)
     1. [Beginning with dnf](#beginning-with-dnf)
 1. [Usage - Configuration options and additional functionality](#usage)
     1. [DNF module actions](#dnf-module-actions)
@@ -33,6 +34,11 @@ For features common with Yum and general configuration, consider using [yum](htt
 - Packages
     - python3
     - pyyaml
+
+### Recommended modules
+
+- [puppetlabs-stdlib](https://forge.puppet.com/modules/puppetlabs/stdlib/) - For useful functions `ensure_resource` and `ensure_resources`
+- [puppet-yum](https://forge.puppet.com/modules/puppet/yum/) - For DNF confs and common features with Yum
 
 ### Beginning with dnf
 
