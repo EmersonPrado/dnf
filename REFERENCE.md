@@ -95,6 +95,7 @@ ensure_resources('dnf_module',
   },
   { 'action' => '<Default action>' }
 )
+```
 
 > Ensure titles are unique for the whole catalog
 
@@ -131,5 +132,6 @@ ensure_resources('dnf_module_stream',
   },
   { 'action' => '<Default action>' }
 )
+```
 
 > Ensure titles are unique for the whole catalog
