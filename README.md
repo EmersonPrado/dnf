@@ -14,6 +14,7 @@ Manages DNF package manager features not included in previous tool YUM
         1. [Default stream and profile](#default-stream-and-profile)
         1. [Stream actions](#stream-actions)
         1. [Specific profile](#specific-profile)
+        1. [With stlib ensure_resource/ensure_resources functions](#with-stlib-ensure_resourceensure_resources-functions)
 1. [Limitations - OS compatibility, etc.](#limitations)
 1. [Development - Guide for contributing to the module](#development)
 1. [References](#references)
