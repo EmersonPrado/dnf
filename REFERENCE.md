@@ -6,6 +6,7 @@
     1. [`dnf_modules`](#dnf_modules) - DNF modules, their streams and modules
 1. [Custom resources](#custom-resources)
     1. [`dnf_module`](#dnf_module) - Manages DNF modules and their profiles
+    1. [`dnf_module_stream`](#dnf_module_stream) - Manages DNF modules streams
 
 ## Custom Facts
 
@@ -78,3 +79,25 @@ dnf_module { '<Title>':
     - Accepted values: 'disable', 'enable', 'install', 'remove', 'reset' and 'update'
 
 > You can query available modules and their profiles with [dnf_modules custom fact](#dnf_modules), `dnf -q module list` or `dnf -q module list <Module>`
+
+### `dnf_module_stream`
+
+Manages DNF modules streams
+
+Usage:
+
+```Puppet
+dnf_module_stream { '<Title>':
+  module => '<Module>',
+  stream => '<Stream>',
+  action => '<Action>',
+}
+```
+
+- `module` - DNF module name
+- `stream` - DNF module stream name
+- `Action` - Change to be done in module stream
+    - Accepted values: 'enable' and 'switch_to'
+    > Use 'switch_to' instead of 'switch-to', due to Ruby symbol naming rules
+
+> You can query available modules and their streams with [dnf_modules custom fact](#dnf_modules), `dnf -q module list` or `dnf -q module list <Module>`
