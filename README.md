@@ -49,6 +49,8 @@ use of the module.
 
 ## Usage
 
+> Be sure to check out module [Reference](reference)
+
 ### DNF module actions
 
 #### Default stream and profile
