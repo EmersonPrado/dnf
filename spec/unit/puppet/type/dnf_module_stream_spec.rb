@@ -21,7 +21,7 @@ RSpec.describe 'dnf_module_stream custom resource type' do
         super().merge({ 'action' => action })
       end
 
-      it is_expected.to compile
+      it { is_expected.to compile }
     end
   end
 end

@@ -23,7 +23,7 @@ RSpec.describe 'dnf_module custom resource type' do
         )
       end
 
-      it is_expected.to compile
+      it { is_expected.to compile }
     end
   end
 
@@ -38,7 +38,7 @@ RSpec.describe 'dnf_module custom resource type' do
         )
       end
 
-      it is_expected.to compile
+      it { is_expected.to compile }
     end
   end
 
@@ -53,7 +53,9 @@ RSpec.describe 'dnf_module custom resource type' do
         )
       end
 
-      it is_expected.to compile.and_raise_error(%r{Profile specification only for actions install, remove and update!})
+      it {
+        is_expected.to compile.and_raise_error(%r{Profile specification only for actions install, remove and update!})
+      }
     end
   end
 end
