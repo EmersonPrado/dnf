@@ -15,10 +15,12 @@ RSpec.describe 'dnf_module custom resource type' do
   ['disable', 'enable', 'install', 'remove', 'reset', 'update'].each do |action|
     context "#{action} nginx module" do
       let(:params) do
-        {
-          'profile' => :undef,
-          'action'  => action,
-        }
+        super().merge(
+          {
+            'profile' => :undef,
+            'action'  => action,
+          },
+        )
       end
 
       it is_expected.to compile
@@ -28,10 +30,12 @@ RSpec.describe 'dnf_module custom resource type' do
   ['install', 'remove', 'update'].each do |action|
     context "#{action} nginx module common profile" do
       let(:params) do
-        {
-          'profile' => 'common',
-          'action'  => action,
-        }
+        super().merge(
+          {
+            'profile' => 'common',
+            'action'  => action,
+          },
+        )
       end
 
       it is_expected.to compile
@@ -41,10 +45,12 @@ RSpec.describe 'dnf_module custom resource type' do
   ['disable', 'enable', 'reset'].each do |action|
     context "#{action} nginx module common profile" do
       let(:params) do
-        {
-          'profile' => 'common',
-          'action'  => action,
-        }
+        super().merge(
+          {
+            'profile' => 'common',
+            'action'  => action,
+          },
+        )
       end
 
       it is_expected.to compile.and_raise_error(%r{Profile specification only for actions install, remove and update!})
