@@ -23,6 +23,8 @@ RSpec.describe 'dnf_module_stream custom resource type' do
 
       it { is_expected.to compile }
       it { is_expected.to compile.with_all_deps }
+      it { is_expected.to be_valid_type }
+      it { is_expected.to be_valid_type.with_provider('dnf_module_stream') }
     end
   end
 end
