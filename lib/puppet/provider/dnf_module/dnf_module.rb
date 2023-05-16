@@ -4,10 +4,7 @@ Puppet::Type.type(:dnf_module).provide(:dnf_module) do
   commands dnf: 'dnf'
 
   def module_has_profile?(module_name, profile_name)
-    Facter['dnf_modules'].value[module_name].each_value do |profiles|
-      return true if profiles.include?(profile_name)
-    end
-    false
+    Facter['dnf_modules'].value[module_name].values.any? { |profiles| profiles.include?(profile_name) }
   end
 
   def stream_profile_data(value)
@@ -65,11 +62,7 @@ Puppet::Type.type(:dnf_module).provide(:dnf_module) do
   end
 
   def set_module(command, module_name, profile_name)
-    if profile_name.nil?
-      dnf('-y', 'module', command, module_name)
-    else
-      dnf('-y', 'module', command, "#{module_name}/#{profile_name}")
-    end
+    dnf('-y', 'module', command, profile_name.nil? ? module_name : "#{module_name}/#{profile_name}")
   end
 
   def action
