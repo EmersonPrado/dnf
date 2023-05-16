@@ -2,8 +2,9 @@
 
 require 'spec_helper'
 
-RSpec.describe 'dnf_module_stream custom resource type' do
+dnf_module_stream = Puppet::Type.type(:dnf_module_stream)
+RSpec.describe dnf_module_stream do
   it 'loads' do
-    expect(Puppet::Type.type(:dnf_module_stream)).not_to be_nil
+    expect(dnf_module_stream).not_to be_nil
   end
 end
