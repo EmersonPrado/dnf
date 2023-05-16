@@ -16,9 +16,19 @@ RSpec.describe dnf_module do
     ]
   end
 
+  let :properties do
+    [ :action ]
+  end
+
   it 'has expected parameters' do
     params.each do |param|
       expect(dnf_module.parameters).to be_include(param)
+    end
+  end
+
+  it 'has expected properties' do
+    properties.each do |property|
+      expect(dnf_module.properties.map(&:name)).to be_include(property)
     end
   end
 end
